@@ -39,10 +39,10 @@ api.add_listener(
         tests=TESTS,
         function_name={
             "python": "remove_min_max",
-            "js": "remove_min_max"
+            "js": "removeMinMax"
         },
         cover_code={
-            'python-3': cover_codes.unwrap_args,
-            'js-node': cover_codes.js_unwrap_args
+            'python-3': {},
+            'js-node': {},
         }
     ).on_ready)
