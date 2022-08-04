@@ -2,14 +2,14 @@
 {% block env %}{% endblock env %}
 
 {% block start %}
-def remove_min_max(data: set, total:int) -> set:
+def remove_min_max(data: set[int], total:int) -> set[int]:
     # your code here
     return None
 {% endblock start %}
 
 {% block example %}
 print('Example:')
-print(remove_min_max({4,5,6,7}, 1))
+print(remove_min_max({4, 5, 6, 7}, 1))
 {% endblock %}
 
 {% block tests %}

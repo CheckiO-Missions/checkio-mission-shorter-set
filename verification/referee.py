@@ -29,7 +29,6 @@ checkio.referee.cover_codes
 from checkio.signals import ON_CONNECT
 from checkio import api
 from checkio.referees.io_template import CheckiOReferee
-from checkio.referees import cover_codes
 
 from tests import TESTS
 
@@ -38,11 +37,13 @@ api.add_listener(
     CheckiOReferee(
         tests=TESTS,
         function_name={
-            "python": "remove_min_max",
-            "js": "removeMinMax"
+            "python": "number_length",
+            "js": "numberLength"
         },
         cover_code={
             'python-3': {},
-            'js-node': {},
+            'js-node': {
+                # "dateForZeros": True,
+            }
         }
     ).on_ready)

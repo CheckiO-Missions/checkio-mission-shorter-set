@@ -1,0 +1,77 @@
+<body data-author="freeman_lex">
+    <div class="question-answer">
+        <div class="question">
+            I have no idea how to start solving this mission
+        </div>
+        <div class="answer">
+            The idea I offer you is the following.
+            If the set is not empty, to create additional sorted list.
+            Then, taking a certain amount of values from the beginning
+            and the end of the list, to delete them from the set.
+            Return the updated set.    
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            What instruments of Python should I use to implement this idea into code?
+        </div>
+        <div class="answer">
+           You will need if statement, to check emptiness of set, sorted() method to get sorted list from set,
+           range() to iterate over the list and discard() set method to remove the value from set without
+           raising an error in case of absence. Inside discard put values from beginning and end of list
+           using list indexing.
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            Could you please show me some code blocks?
+        </div>
+        <div class="answer">
+            Let's see:
+            <pre class="brush: python">
+def remove_min_max(data: set[int], total:int) -> set[int]:
+    
+    if ...: # check if set is not empty with len() of set not equal 0
+        order = ... # creat sorted list from the set with sorted()
+        for i in range(...): # use input amount
+            # remove (with discard()) from data values from beginning and end of list
+            # using normal and negative list indexing
+    return data
+            </pre>
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            And the final question. I need to see the final code.
+        </div>
+        <div class="answer">
+            <pre class="brush: python">
+    number = 56
+    text = str(number)
+    text_length = len(text)
+    # the variable text_length now contains length of the string text
+            </pre>
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            One last question. How my final solution will look like?
+        </div>
+        <div class="answer">
+            <pre class="brush: python">
+    def number_length(number: int) -> int:
+        text = str(number)
+        return len(text)
+            </pre>
+    
+            <p>Or you can do it in one line</p>
+    
+            <pre class="brush: python">
+    def number_length(number: int) -> int:
+        return len(str(number))
+            </pre>
+        </div>
+    </div>
+    
+    
+    </body>
