@@ -1,0 +1,72 @@
+<body data-author="freeman_lex">
+    <div class="question-answer">
+        <div class="question">
+            Мені потрібна підказка у розв'язанні цієї місії.
+        </div>
+        <div class="answer">
+            Ідея, яку я тобі пропоную, полягає в наступному.
+            Якщо сет не порожнійб створи додатковий відсортований список.
+            Тоді, беручи визначену кількість значень з початку і кінця цього списку,
+            видаляй їх із сету.
+            Поверни оновлений сет.  
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            З допомогою яких інструментів Python я можу втілити цю ідею у коді?
+        </div>
+        <div class="answer">
+           Тобі знадобиться <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if оператор</a> щоб перевірити чи порожній сет, метод <a target="_blank" href="https://docs.python.org/3/library/functions.html#sorted">sorted()</a>, щоб отримати з сету сортований список,
+           <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#range">range()</a> щоб рухатися по цьому списку і метод сету <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#frozenset.discard">discard()</a>, щоб видаляти значення із сету без
+           генерації помилки у випадку відсутності значення. Всередині discard() поміщуй значення з початку і кінця списку,
+           використовуючи індексування списків.
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            Чи міг би ти мені показати окремі частини коду?
+        </div>
+        <div class="answer">
+            Давай глянемо:
+            <pre class="brush: python">
+def remove_min_max(data: set[int], total:int) -> set[int]:
+    
+    if ...: # перевір чи порожній сет: результат функції len() сету не повинен дорівнювати 0
+        order = ... # створи сортований список з сету з допомогою sorted()
+        for i in range(...): # використай початку кількість значень для видалення
+            # видали (з discard()) з сету значення від початку і кінця списку
+            # використовуючи звичайне і негативне індексування списку.
+    return data
+            </pre>
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            І останнє питання. Я маю побачити остаточний код.
+        </div>
+        <div class="answer">
+            Ось він:
+            <pre class="brush: python">
+def remove_min_max(data: set, total:int) -> set:
+    
+    if len(data) != 0: # Найкраще використати просто 'if data:' 
+        order = sorted(data)
+        for i in range(total):
+            data.discard(order[i])
+            data.discard(order[-i-1])
+            
+    return data
+            </pre>
+        </div>
+    </div>
+    <div class="question-answer">
+        <div class="question">
+            Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+        </div>
+        <div class="answer">
+            Приємно це чути!
+        </div>
+    </div>
+    
+    
+    </body>

@@ -7,7 +7,7 @@
             The idea I offer you is the following.
             If the set is not empty, to create additional sorted list.
             Then, taking a certain amount of values from the beginning
-            and the end of the list, to delete them from the set.
+            and the end of the list, delete them from the set.
             Return the updated set.    
         </div>
     </div>
@@ -16,9 +16,9 @@
             What instruments of Python should I use to implement this idea into code?
         </div>
         <div class="answer">
-           You will need if statement, to check emptiness of set, sorted() method to get sorted list from set,
-           range() to iterate over the list and discard() set method to remove the value from set without
-           raising an error in case of absence. Inside discard put values from beginning and end of list
+           You will need <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if statement</a>, to check emptiness of set, <a target="_blank" href="https://docs.python.org/3/library/functions.html#sorted">sorted()</a> method to get sorted list from set,
+           <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#range">range()</a> to iterate over the list and <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#frozenset.discard">discard()</a> set method to remove the value from set without
+           raising an error in case of absence. Inside discard() put values from beginning and end of list
            using list indexing.
         </div>
     </div>
@@ -45,31 +45,26 @@ def remove_min_max(data: set[int], total:int) -> set[int]:
             And the final question. I need to see the final code.
         </div>
         <div class="answer">
+            Here it is:
             <pre class="brush: python">
-    number = 56
-    text = str(number)
-    text_length = len(text)
-    # the variable text_length now contains length of the string text
+def remove_min_max(data: set, total:int) -> set:
+    
+    if len(data) != 0: # the best way - to use just 'if data:'
+        order = sorted(data)
+        for i in range(total):
+            data.discard(order[i])
+            data.discard(order[-i-1])
+            
+    return data
             </pre>
         </div>
     </div>
     <div class="question-answer">
         <div class="question">
-            One last question. How my final solution will look like?
+            Thanks! Now I know and understand more! Everything works fine!
         </div>
         <div class="answer">
-            <pre class="brush: python">
-    def number_length(number: int) -> int:
-        text = str(number)
-        return len(text)
-            </pre>
-    
-            <p>Or you can do it in one line</p>
-    
-            <pre class="brush: python">
-    def number_length(number: int) -> int:
-        return len(str(number))
-            </pre>
+            Glad to hear it!
         </div>
     </div>
     
