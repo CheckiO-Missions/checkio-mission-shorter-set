@@ -37,8 +37,8 @@ api.add_listener(
     CheckiOReferee(
         tests=TESTS,
         function_name={
-            "python": "number_length",
-            "js": "numberLength"
+            "python": "remove_min_max",
+            "js": "removeMinMax"
         },
         cover_code={
             'python-3': {},
