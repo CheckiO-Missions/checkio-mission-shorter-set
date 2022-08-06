@@ -17,10 +17,10 @@
         впорядкований набір, який можна буде відсортувати. Список підійде для цього.
         Тож, спершу тобі потрібна функція <a target='_blank' href='https://docs.python.org/3/library/functions.html#sorted'>
         sorted()</a> для створення сортованого списку з вхідної множини.
-        <pre class='brysh: python'>
+        <pre class="brysh: python">
 data = {1, 5, 2, 4}
 order = sorted(data)
-print(order) # [1, 2, 4, 5] ти отримав список і він відсортований по зростанню.
+print(order) # [1, 2, 4, 5] ти отримав список,  відсортований по зростанню.
         </pre>
     </div>
 </div>
@@ -66,7 +66,7 @@ order_sl = order[total:-total]
     <div class='answer'>
         Так, тобі потрібно лише створити нову множину зі свого з допомогою
         set(order_sl) і повернути її.
-        <pre class='brysh: python'>
+        <pre class="brysh: python">
 order = sorted(data)
 order_sl = order[total:-total]
 
@@ -86,7 +86,7 @@ return set(order_sl)
         спосіб це зробити, це написати лише 'if not total:'. Оскільки нічого
         видаляти не потрібно, ти повертаєш початкову множину.
         І не забудь проголосити саму функцію.
-        <pre class='brysh: python'>
+        <pre class="brysh: python">
 def remove_min_max(data: set[int], total:int) -> set[int]:
     
     if not total:
