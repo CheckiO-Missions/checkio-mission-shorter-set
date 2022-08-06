@@ -1,72 +1,108 @@
 <body data-author="freeman_lex">
-    <div class="question-answer">
-        <div class="question">
-            I have no idea how to start solving this mission
-        </div>
-        <div class="answer">
-            The idea I offer you is the following.
-            If the set is not empty, to create additional sorted list.
-            Then, taking a certain amount of values from the beginning
-            and the end of the list, delete them from the set.
-            Return the updated set.    
-        </div>
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission
     </div>
-    <div class="question-answer">
-        <div class="question">
-            What instruments of Python should I use to implement this idea into code?
-        </div>
-        <div class="answer">
-           You will need <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if statement</a>, to check emptiness of set, <a target="_blank" href="https://docs.python.org/3/library/functions.html#sorted">sorted()</a> method to get sorted list from set,
-           <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#range">range()</a> to iterate over the list and <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#frozenset.discard">discard()</a> set method to remove the value from set without
-           raising an error in case of absence. Inside discard() put values from beginning and end of list
-           using list indexing.
-        </div>
+    <div class="answer">
+        The idea I offer you is to correctly slice sorted list.
     </div>
-    <div class="question-answer">
-        <div class="question">
-            Could you please show me some code blocks?
-        </div>
-        <div class="answer">
-            Let's see:
-            <pre class="brush: python">
+</div>
+<div class="question-answer">
+    <div class="question">
+        What instrument of Python should I start from to implement this idea into code?
+    </div>
+    <div class="answer">
+        Since set is an unordered collection, you need to create new ordered collection,
+        which can be sorted. The list object is fine.
+        So, first you need <a target='_blank' href='https://docs.python.org/3/library/functions.html#sorted'>
+        sorted()</a> function to creat sorted list from your input set.
+        <pre class='brysh: python'>
+data = {1, 5, 2, 4}
+order = sorted(data)
+print(order) # [1, 2, 4, 5] you got list and it is sorted ascending.
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        And how to remove amount of minimum and maximum values from the list?
+    </div>
+    <div class="answer">
+        Your list is sorted ascending, so it starts from smallest
+        values and ends with biggest. Now you may use <a target='_blank'
+        href='https://www.pythontutorial.net/advanced-python/python-slicing/'>slicing</a>
+        with positive and negative indexes to get partial list.
+        <pre class="brush: python">
+order_sl = order[1:-1] # you get new list from previous with
+                    # sliced off first and -first(last) values
+print(order_sl) # [2, 4]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok. I still don't understand, what indexes to use
+        in my solution for slicing.
+    </div>
+    <div class="answer">
+        You have input value 'total'. It shows how many smallest and biggest
+        numbers should be deleted from set. Use it as positive and negative index
+        to slice them off your sorted list.
+        <pre class="brush: python">
+order = sorted(data)
+order_sl = order[total:-total]
+        </pre>
+    </div>
+</div>
+<div class='question-answer'>
+    <div class='question'>
+        After previous step I have a list, but the solution must return set.
+        What should I do?
+    </div>
+    <div class='answer'>
+        Yes. You just need to create set from your list with
+        set(order_sl) and return it.
+        <pre class='brysh: python'>
+order = sorted(data)
+order_sl = order[total:-total]
+
+return set(order_sl)     
+        </pre>
+    </div>
+</div>
+<div class='question-answer'>
+    <div class='question'>
+        And the final question. My slicing doesn't work if total == 0.
+        How to include this case in solution?
+    </div>
+    <div class='answer'>
+        You have to check 'total' value before other commands to avoid
+        doing unnecessary calculations.
+        You may do this with 'if total == 0:', but the pythonic way
+        to do this is just 'if not total:'. Since there is no amount
+        to remove, you return the initial set in this case.
+        And don't forget to declare function itself. 
+        <pre class='brysh: python'>
 def remove_min_max(data: set[int], total:int) -> set[int]:
     
-    if ...: # check if set is not empty with len() of set not equal 0
-        order = ... # creat sorted list from the set with sorted()
-        for i in range(...): # use input amount
-            # remove (with discard()) from data values from beginning and end of list
-            # using normal and negative list indexing
-    return data
-            </pre>
-        </div>
+    if not total:
+        return data
+
+    order = sorted(data)
+    order_sl = order[total:-total]
+
+    return set(order_sl)
+        </pre>
     </div>
-    <div class="question-answer">
-        <div class="question">
-            And the final question. I need to see the final code.
-        </div>
-        <div class="answer">
-            Here it is:
-            <pre class="brush: python">
-def remove_min_max(data: set, total:int) -> set:
-    
-    if len(data) != 0: # the best way - to use just 'if data:'
-        order = sorted(data)
-        for i in range(total):
-            data.discard(order[i])
-            data.discard(order[-i-1])
-            
-    return data
-            </pre>
-        </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! Now I know and understand more! Everything works fine!
     </div>
-    <div class="question-answer">
-        <div class="question">
-            Thanks! Now I know and understand more! Everything works fine!
-        </div>
-        <div class="answer">
-            Glad to hear it!
-        </div>
+    <div class="answer">
+        Glad to hear it!
     </div>
-    
-    
-    </body>
+</div>
+
+
+</body>
