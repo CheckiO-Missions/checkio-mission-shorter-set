@@ -16,7 +16,7 @@
         which can be sorted. The list object is fine.
         So, first you need <a target='_blank' href='https://docs.python.org/3/library/functions.html#sorted'>
         sorted()</a> function to creat sorted list from your input set.
-        <pre class="brysh: python">
+        <pre class="brush: python">
 data = {1, 5, 2, 4}
 order = sorted(data)
 print(order) # [1, 2, 4, 5] you got list and it is sorted ascending.
@@ -62,7 +62,7 @@ order_sl = order[total:-total]
     <div class='answer'>
         Yes. You just need to create set from your list with
         set(order_sl) and return it.
-        <pre class="brysh: python">
+        <pre class="brush: python">
 order = sorted(data)
 order_sl = order[total:-total]
 
@@ -82,7 +82,7 @@ return set(order_sl)
         to do this is just 'if not total:'. Since there is no amount
         to remove, you return the initial set in this case.
         And don't forget to declare function itself. 
-        <pre class="brysh: python">
+        <pre class="brush: python">
 def remove_min_max(data: set[int], total:int) -> set[int]:
     
     if not total:
